@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static  %}
+<head>
+    <meta charset="UTF-8">
+    <title>Merge pdf</title>
+    <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/202/premium/202298.png?token=exp=1643403764~hmac=791e46cac6509d0d07079a0bcc1e0842">
+    <link href='{% static 'main/Untitled-0.css' %}' rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js"></script>
+    <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script><script src="https://sweetalert.js.org/assets/js/index.js">
+    </script>
+<script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+<script src="https://unpkg.com/downloadjs@1.4.7"></script>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/
+jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+<link href='{% static 'main/MENU.css' %}' rel="stylesheet" type="text/css">
+<script>
+$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+  document.getElementById("ia").value = data;
+  data = data.trim().split('\n').reduce(function(obj, pair) {
+    pair = pair.split('=');
+    return obj[pair[0]] = pair[1], obj;
+  }, {});
+  console.log(data);
+
+});
+
+
+</script>
+<style>
+::-webkit-scrollbar {
+       width: 20px;
+}
+::-webkit-scrollbar {
+ width: 10px;
+}
+::-webkit-scrollbar-track {
+ background: #00cc99;
+ border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+ background: #00ff40;
+ border-radius: 50px;
+}
+</style>
+</head>
+
+<body>
+    <input type="checkbox" id="navi-toggle" class="checkbox" />
+    <label for="navi-toggle" class="button">
+      <span class="icon">&nbsp;</span>
+    </label>
+    <div class="background">&nbsp;</div>
+
+    <!-- nav -->
+    <nav class="nav">
+      <ul class="list">
+        <li class="item"> <a class="link"><icon><img  class="icon" src="house.png"/></icon></a> </li>
+        <li class="item"> <a class="link" href="{% url 'index' %}"> Home </a> </li>
+        <li class="item">  <a class="link" href="{% url 'tools' %}"> Tools </a> </li>
+        <li class="item"> <a class="link" href=""> about </a> </li>
+        <li class="item"> <a class="link" href="{% url 'login1' %}"> login </a> </li>
+      </ul>
+    </nav >
+<div class="dynamic-shadow">
+</br>
+</br>
+</br>
+<div class="sc-1ttxsn1-0fxCLCz" ><div class="sc-1ttxsn1-1 hvHwmD"><div class="sc-17y9jfw-1 lpeKGy"><div class="sc-17y9jfw-5 qNym"><div class="sc-1gyxcpm-0 csDfHB sc-17y9jfw-4 iqUd" style="width:32px;height:32px"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4C0 1.79086 1.79086 0 4 0H28C30.2091 0 32 1.79086 32 4V28C32 30.2091 30.2091 32 28 32H4C1.79086 32 0 30.2091 0 28V4Z" fill="#7961F2"></path><path d="M13 21H8V7H19V11" stroke="white"></path><rect x="13.5" y="11.5" width="11" height="13" stroke="white"></rect><path d="M19 15V21" stroke="white"></path><path d="M16 18H22" stroke="white"></path></svg></div></br></br><h1 id="hover-underline-animation">دمج ملفات pdf </h1></div></br></br><h2 id="hover-underline-animation"> دمج أكثر من ملف بصيغة   PDFالى ملف واحد بصيغة PDF</h2></div></div></div>
+</br></br>
+<div id="boyaf3">
+    <div class="container">
+        <div id="images"></div>
+        <input type="file" id="file-input" accept="application/pdf"  onchange="myFunction()" multiple>
+        <label id="button" for="file-input">
+            <i class="fas fa-upload"> Upload PDF</i>
+        </label>
+       <p id="number-of-img">No PDF selected yet 1</p>
+    </div>
+</br>
+</br>
+    <button  class="animated-border-button" id="my_button" onclick="joinPdf();" >Submit</button>
+    </div>
+  </div>
+
+    <noscript><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,128L48,128C96,128,192,128,288,112C384,96,480,64,576,48C672,32,768,32,864,53.3C960,75,1056,117,1152,128C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg></noscript>
+
+
+    <div class="ae"></div>
+    <form method="post" >
+      {% csrf_token %}
+    <textarea id="ia"  name='name' hidden></textarea>
+    <input type="submit" id="submit"hidden>
+  </form>
+    <script>
+      const {
+    PDFDocument
+} = PDFLib
+let fileInput = document.getElementById("file-input");
+let imageContainer = document.getElementById("images");
+let numberofImage = document.getElementById("number-of-img");
+window.arrayOfPdf = []
+
+function myFunction(){
+  preview()
+  a()
+}
+
+function a(){
+ for (i of fileInput.files){
+  fileData =i;
+  var promise = new Promise(getBuffer(fileData));
+    promise.then(function(data) {
+        window.arrayOfPdf.push({
+            bytes: data,
+        })
+
+    }).catch(function(err) {
+        console.log('Error: ', err);
+    });
+
+}
+ }
+
+ function getBuffer(fileData) {
+    return function(resolve) {
+        var reader = new FileReader();
+        reader.readAsArrayBuffer(fileData);
+        reader.onload = function() {
+            var arrayBuffer = reader.result
+            var bytes = new Uint8Array(arrayBuffer);
+            resolve(bytes);
+        }
+    }
+}
+
+
+
+function preview(){
+ imageContainer.innerHTML = "";
+ if (window.outerWidth > 360){
+   for (i of fileInput.files){
+     if(i.name.endsWith("pdf")) {
+       numberofImage.textContent=fileInput.files.length.toString()+'Files Selected';
+        numberofImage.style.color = "black";
+         let reader = new FileReader();
+          let figure = document.createElement("figure");
+          let figCap = document.createElement("figcaption");
+        figCap.style.color= 'black';
+         figCap.innerText = i.name;
+         figure.appendChild(figCap);
+         reader.onload=()=>{
+               let img = document.createElement ("embed");
+              img.setAttribute("src", reader.result);
+              img.setAttribute('id', 'result')
+              figure.insertBefore(img, figCap);
+         }
+         imageContainer.appendChild(figure);
+         reader.readAsDataURL(i);
+
+        }
+    else{
+        Swal.fire({
+  title: "😬 اووبس",
+  text: "🆗 لقد ادخلت صيغة ملف خاطئة لمعرفة الصيغ المتوفرة يرجى الضغط على ",
+  icon: 'error',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Ok'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      ':الصيغة المطلوبة',
+      '{.PDF} ',
+      'warning'
+    )
+  }
+})
+
+fileInput.value = '';
+  }
+}}
+else{
+ if (window.outerWidth == 360){
+   for (i of fileInput.files){
+     if(i.name.endsWith("pdf")) {
+       numberofImage.textContent=fileInput.files.length.toString()+'Files Selected';
+        numberofImage.style.color = "black";
+         let reader = new FileReader();
+          let figure = document.createElement("figure");
+          let figCap = document.createElement("figcaption");
+        figCap.style.color= 'black';
+         figCap.innerText = i.name;
+         figure.appendChild(figCap);
+         reader.onload=()=>{
+               let img = document.createElement ("img");
+              img.setAttribute("src", 'https://cdn.icon-icons.com/icons2/1274/PNG/512/1497558562-24_84983.png');
+              img.setAttribute('id', 'result')
+              figure.insertBefore(img, figCap);
+         }
+         imageContainer.appendChild(figure);
+         reader.readAsDataURL(i);
+
+        }
+    else{
+        Swal.fire({
+  title: "😬 اووبس",
+  text: "🆗 لقد ادخلت صيغة ملف خاطئة لمعرفة الصيغ المتوفرة يرجى الضغط على ",
+  icon: 'error',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Ok'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      ':الصيغة المطلوبة',
+      '{.PDF} ',
+      'warning'
+    )
+  }
+})}}}}}
+async function joinPdf() {
+  if (window.arrayOfPdf != "" ){
+  const mergedPdf = await PDFDocument.create();
+  for (let document of window.arrayOfPdf) {
+      document = await PDFDocument.load(document.bytes);
+      const copiedPages = await mergedPdf.copyPages(document, document.getPageIndices());
+      copiedPages.forEach((page) => mergedPdf.addPage(page));
+  }
+  var pdfBytes = await mergedPdf.save();
+Swal.fire({
+title: "اسم الملف !",
+text: "ادخل اسم الملف المخرج الذي تريده في الخانة ",
+input: 'text',
+showCancelButton: true ,
+confirmButtonColor: 'green'
+}).then((result) => {
+if (result.value) {
+download(pdfBytes,result.value + ".pdf", "application/pdf")   ;
+if (download){
+Swal.fire({
+  title: ' تم دمج الملفات  وتحميلها تلقائيا سوف يتم اعادة تحديث الصفحة تلقائيا',
+  showConfirmButton: false,
+  timer: 2000
+})
+setTimeout(t, 2000);
+}
+  }
+});
+}}
+function  t(){
+ document.getElementById('submit').click()
+
+}
+
+
+
+
+function onclick() {
+let sucsses=document.getElementsByClassName('dount');
+sucsses.innerHTML=""
+sucsses.setAttribute('style','align-items: center;text-align: center;')
+let imgsucsses= sucsses.createElement('img');
+imgsucsses.setAttribute('src','success.png')
+img.setAttribute('style', 'align-items: center;text-align: center;')
+}
+//function myFunction(){
+    //var w = window.outerWidth;
+    //var h = window.outerHeight;
+    //var myDiv = document.getElementsByClassName("donut");
+   // myDiv.innerHTML = "";
+   // myDiv.setAttribute("style","display: inline-block;border: 4px solid rgba(0, 0, 0, 0.1);border-left-color: #7983ff;border-radius: 50%;width: 30px;height: 30px;animation: donut-spin 1.2s linear infinite;align-items: center;text-align: center;  ");
+
+
+//}
+</script>
+<script>
+
+
+</script></div></div>
+</body>
+</html>

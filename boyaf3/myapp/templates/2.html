@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@200&display=swap" rel="stylesheet">
+    <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script><script src="https://sweetalert.js.org/assets/js/index.js">
+    </script> 
+<script src="https://unpkg.com/pdf-lib@1.4.0"></script> 
+<script src="https://unpkg.com/downloadjs@1.4.7"></script>
+<script
+src="https://code.jquery.com/jquery-3.6.0.min.js"
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/
+jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+</head>
+<style>
+  .na{
+  }
+.card1{
+  flex-wrap: wrap;
+}
+.card2{
+  flex-wrap: wrap;
+}
+.card3{
+  flex-wrap: wrap;
+}
+ body{
+     background-color: blue;
+     backdrop-filter: blur(20px);
+ }
+h1{
+  align-items: center;
+ text-align: center;
+ font-family: 'Amiri', serif;
+ font-family: 'Tajawal', sans-serif;
+ font-size: 2.7em;
+ background: -webkit-linear-gradient(rgb(38, 193, 240), rgb(224, 213, 213));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.container{
+height: 100%;
+width: 100%;
+backdrop-filter: blur(20px);
+}
+.main-web-layout{
+height: 80%;
+width: 80%;
+margin: 3rem auto;
+background: linear-gradient(45deg, #0382dd, #16d3ef);
+box-shadow: 0 0 30px rgba(0, 0, 0, 0.603);
+border-radius: 1.5rem;
+
+}
+.login{
+    width: 60px;
+    height: 60px;
+}
+.nav ul{
+    margin-top: 2rem;
+    display: flex;
+    float: flex;
+    justify-content: space-around;
+}
+.nav ul li{
+font-size: 1.5rem;
+color: #000000;
+margin-left: 4rem;
+padding: 8px 12px;
+border-radius: 5px;
+list-style: none;
+text-transform: capitalize;
+cursor: pointer;
+}
+#active,.nav ul li:hover{
+    background:#fcbb01;
+    color:  darkblue;
+}button{
+    height: 3rem;
+    width: 12rem;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 2rem  0 5rem;
+    background: #16d3ef;
+    color: #fcbb01;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover{
+    box-shadow: 5px 5px 5px #0285dd;
+     border: 4px solid #fcbb01 !important; 
+}
+
+ .imgdarkmode{
+   float: left;
+    height: 40px;
+    width: 50px;
+    border-radius: 40%;
+    box-shadow: 6px -3px 131px 73px rgba(0,0,0,0.84);
+-webkit-box-shadow: 6px -3px 131px 73px rgba(0,0,0,0.84);
+-moz-box-shadow: 6px -3px 131px 73px rgba(0,0,0,0.84);
+place-items: start;}
+.imgdarkmode:hover{transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);}
+.sun{
+  float: left;
+  height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 6px -3px 131px 73px rgb(255, 251, 1);
+-webkit-box-shadow: 6px -3px 131px 73px rgb(255, 238, 0);
+-moz-box-shadow: 6px -3px 131px 73px rgba(255, 238, 0);
+place-items: start;}
+.sun:hover{transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgb(255, 238, 0), 
+    -5px -5px 30px 15px rgb(255, 238, 0);}
+
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin:10px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  
+}
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  
+}
+
+.card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+p{
+    color: black;
+}
+p:hover{
+    top :50%;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+::-webkit-scrollbar {
+       width: 20px;
+}
+::-webkit-scrollbar {
+ width: 10px;
+}
+::-webkit-scrollbar-track {
+ background: #00cc99;
+ border-radius: 50px;
+}
+::-webkit-scrollbar-thumb {
+ background: #00ff40;
+ border-radius: 50px;
+}
+
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+@media screen and (min-width:200px) and (max-width:500px){
+
+  .nav ul li {
+    font-size: 0.65rem;
+    color: #000000;
+    margin-left: 0.2rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    list-style: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.main-web-layout {
+    height: 80%;
+    width: 80%;
+    margin: 0.1rem 1.5rem;
+    background: linear-gradient(
+45deg
+, #0382dd, #16d3ef);
+    box-shadow: 0 0 30px rgb(0 0 0 / 60%);
+    border-radius: 0.9rem;
+}.container {
+    float: left;
+    height: 100%;
+    width: 380px;
+    backdrop-filter: blur(20px);
+}.nav ul li {
+    font-size: 0.65rem;
+    color: #000000;
+    margin-left: 0.2rem;
+    padding: 7px 14px;
+    border-radius: 5px;
+    list-style: none;
+    text-transform: capitalize;
+    cursor: pointer;
+}.card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+ box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+}
+
+</style>
+<body class="containr">
+  <div class='na'>
+    <div class="container">
+      <div class="main-web-layout">
+             <div class="nav">
+                  <ul>
+                      <li ><a href="{% url 'index' %}">Home</a></li>
+                      <li id="active">Tools</li>
+                      <li>About</li>
+                      {% if request.user.is_authenticated %}
+                          <li>{{ request.user}} here your tools</li><a href="{% url 'logout1' %}"><img class="login" src="https://img.icons8.com/nolan/64/exit.png"/></a>
+                      {% else %}
+                      <li ><a href="{% url 'login1' %}"><img class="login"src="https://img.icons8.com/cute-clipart/64/000000/login-rounded-right.png"/></a></li>
+                      {% endif %}
+                  </ul>
+             </div>
+             <div class="h1"><h1>Tools</h1></div>
+    <div class="card 1">
+  <div class="card_image"><img src="https://cdn.dribbble.com/users/616823/screenshots/3120552/pdf-page-flip-animation.gif"  /> </div>
+  <div class="card_title title-white">
+    <a href="{% url 'png' %}"><p>Img To Pdf</p></a>
+  </div>
+</div>
+
+  <div class="card 2">
+  <div class="card_image">
+   <img src="https://cdn.dribbble.com/users/148988/screenshots/6683934/pdf.gif" />
+    </div>
+  <div class="card_title title-white">
+    <a href="{% url 'name' %}"><p>Merge Pdf</p></a>
+  </div>
+</div>
+
+<div class="card 3">
+  <div class="card_image">
+   <img src="https://media.giphy.com/media/10SvWCbt1ytWCc/giphy.gif" />
+  </div>
+  <div class="card_title">
+    <a href="{% url 'word' %}"><p>WORD TO PDF</p></a>
+  </div>
+</div>
+
+  <div class="card 4">
+  <div class="card_image">
+    <img src="https://media.giphy.com/media/LwIyvaNcnzsD6/giphy.gif" />
+    </div>
+  <div class="card_title title-black">
+    <a href=""><p>SOOON</p></a>
+  </div>
+  </div>
+      </div>
+    </div>
+
+
+</div>
+
+<footer>
+
+</footer>
+</body>
+
+</html>

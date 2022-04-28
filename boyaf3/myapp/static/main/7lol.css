@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&display=swap');
+h1{
+    background-color: dodgerblue ;
+    background-size: cover;
+    align-items: center;
+    box-shadow: aqua;
+    font-family: 'Amiri', serif;
+}ol{
+    align-items: center;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-size: small;
+ }

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@200&family=Reem+Kufi&display=swap');
+:root{
+    color-scheme: lightdark;
+    --title-color:black;
+    --bkgd-color:white;
+  }
+
+@media(prefers-color-scheme:dark){
+     :root{
+      --title-color:white;
+      --bkgd-color:black;
+     }
+}
+.navbar{
+
+  background-color: darkblue;
+}
+h2{
+  background:-webkit-linear-gradient(90deg,lightblue,darkblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+h3{
+  background:-webkit-linear-gradient(90deg,lightblue,darkblue);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-align: right;
+font-size: 60px;
+}
+
+.t3ref{
+  text-align: right;
+  font-size: 25px;
+}
+.fof{
+background: rgba( 0, 0, 0, 0.4 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.btn-grad {background-image: linear-gradient(to right, #1CD8D2 0%, #93EDC7  51%, #1CD8D2  100%)}
+.btn-grad {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+.btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+.p{
+    align-items: start;
+    width:25px;
+}

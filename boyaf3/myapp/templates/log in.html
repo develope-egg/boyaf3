@@ -1,0 +1,95 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">      <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal:wght@200&display=swap" rel="stylesheet">
+<style>
+    
+
+body {
+    background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+}
+
+.login {
+  width: 500px;
+  padding: 8% 0 0;
+  margin: auto;
+  font-family: 'Amiri', serif;
+font-family: 'Tajawal', sans-serif;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  border-radius: 10px;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+}
+
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'Amiri', serif;
+font-family: 'Tajawal', sans-serif;
+}
+
+.form input:focus {
+  background: #dbdbdb;
+}
+
+.form button {
+    font-family: 'Amiri', serif;
+font-family: 'Tajawal', sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+  width: 100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 20px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.form button:active {
+    background-image: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+}
+
+.form span {
+  font-size: 75px;
+  color: linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
+}
+</style>
+</head>
+<body>
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+   <div class="login">
+  <div class="form" >
+    <form class="login-form"method="post">{% csrf_token %}
+      <span class="material-icons">login</span>
+      <h1> Log in </h1>
+      <input type="text" placeholder="Username" name="username" required/>
+      <input type="password" placeholder="password"  name="pass" required />
+      <button type="submit">login</button>
+    </form>  
+  </div>
+</div>
+</body>

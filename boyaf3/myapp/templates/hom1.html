@@ -1,0 +1,61 @@
+<html>
+{% load static %}
+<head>
+    <title> bo yaf3</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'main/home all .css' %}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+<div class="background">
+ <div class="navbar">
+     <div class="home">
+         <ui><a href="*">الصفحة الرئيسية</a></ui>
+        </div>
+     <div class="answer">
+        <ui><a href="#">الحلول</a></ui>
+        </div>
+     <div class="about">
+        <ui><a href="#">ماذا عنا</a></ui>
+        </div>
+     <icon><img class="p" src="{% static 'main/gg.png' %}" alt="rounded"></icon>
+    </div>
+    <div>
+     <h2 class="shadow p-3 mb-5 bg-body rounded"> مرحبا بكم في موقع ايزي حلول</h2>
+    </div>
+    <div>
+        <h3>
+          ماهو موقع ايزي حلول؟
+        </h3>
+
+    </div>
+
+</br>
+    <div class="t3ref">
+        <span>هو موقع خاص ب يونس اليافعي للحلول لتسهيل التعب والمشقة في ايجاد الحلول</span>
+    </div>
+    <div class="img"><img src="{% static 'main/background.png' %}">
+    </div>
+
+</div>
+
+
+<form action="{% url 'index'%}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+ <div style="animation: backwards; background-color: aqua;">{{ uf }} </div>
+    <div ><input CLASS="btn-grad" type="submit" ></div>
+</form>
+{% if massages %}
+    {% for massage in massages %}
+        <div>{{ massage }}</div>
+    {% endfor %}
+{% endif %}
+<hr>
+<h1>{{ writer }}</h1>
+ </div>
+ </body>
+</html>
