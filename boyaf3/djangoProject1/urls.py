@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django_grapesjs.views import GetTemplate
+
 from myapp import urls
 from django.conf import settings
 from django.conf.urls.static import static
@@ -24,5 +26,6 @@ urlpatterns = [
     path(r'', include('myapp.urls')),
     path(r'admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+path('get_template/', GetTemplate.as_view(), name='dgjs_get_template'),
 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Word to pdf</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/888/888883.png">
+
+    {% if request.user.is_authenticated %}
+        <link rel="icon" href="https://cdn3d.iconscout.com/3d/premium/thumb/doc-file-5250548-4385836.png">
+    {% else %}
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/888/888883.png">
+    {% endif %}
+
     <link href='{% static 'main/Untitled-1.css' %}' rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="script.js"></script>

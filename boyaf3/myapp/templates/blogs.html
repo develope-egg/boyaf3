@@ -5,8 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-{% for titles in titles %}
-    <h1>{{ titles }}</h1>
+{% for titles in a %}
+    <script>
+    if (document.getElementsByClassName('title').src == null){
+        document.getElementsByClassName('title').src
+    }
+    </script>
+    <div><img class='title'src={% url 'media/' %}{{titles.background }}"/>
+    <h1>{{ titles.title }}</h1></div>
 {% endfor %}
 </body>
 </html>

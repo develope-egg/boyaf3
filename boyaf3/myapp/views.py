@@ -181,7 +181,7 @@ def blog(request,id):
     except:
         return HttpResponse('')
 def blogs(request):
-
-    return render(request,'blogs.html')
+  a=models.blogs.objects.all()
+  return render(request,'blogs.html',{'a':a})
 
     

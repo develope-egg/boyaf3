@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Merge pdf</title>
-    <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/202/premium/202298.png?token=exp=1643403764~hmac=791e46cac6509d0d07079a0bcc1e0842">
+    {% if request.user.is_authenticated %}
+    <link rel="icon" href="https://cdn3d.iconscout.com/3d/premium/thumb/pdf-file-4059096-3364019.png">
+    {% else %}
+        <link rel="icon" href="https://cdn-icons.flaticon.com/png/512/202/premium/202298.png?token=exp=1643403764~hmac=791e46cac6509d0d07079a0bcc1e0842">
+    {% endif %}
     <link href='{% static 'main/Untitled-0.css' %}' rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="script.js"></script>

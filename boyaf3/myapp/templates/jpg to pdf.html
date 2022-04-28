@@ -6,8 +6,12 @@
     <title>Img to Pdf</title>
     <link rel="stylesheet" href="{% static 'main/Untitled-2.css' %}" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if request.user.is_authenticated %}
+        <link rel="icon" href="https://cdn3d.iconscout.com/3d/premium/thumb/png-4765633-3975913.png">
+    {% else %}
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/337/337940.png">
+    {% endif %}
     <script src="{% static 'main/script.js' %}"></script>
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/337/337940.png">
 <script src="https://sweetalert.js.org/assets/sweetalert/sweetalert.min.js"></script>
 <link href='{% static 'main/MENU.css' %}' rel="stylesheet" type="text/css">
     <script src="https://sweetalert.js.org/assets/js/index.js">
