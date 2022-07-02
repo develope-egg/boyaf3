@@ -31,4 +31,4 @@ jobs:
     - name: Run Tests
       run: |
         cd /home/runner/work/boyaf3/boyaf3/boyaf3/
-        python manage.py runserver
+        python3 manage.py runserver
