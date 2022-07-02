@@ -24,8 +24,9 @@ jobs:
     - name: Install Dependencies
       run: |
         cd boyaf3
-        python -m pip install --upgrade pip
-        python -m pip install django
+        sudo apt install python3.10
+        python3 -m pip install --upgrade pip
+        python3 -m pip install django
         pip install -r requirements.txt
     - name: Run Tests
       run: |
