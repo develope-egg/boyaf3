@@ -23,7 +23,8 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install Dependencies
       run: |
-        cd boyaf3
+        cd /home/runner/work/boyaf3/boyaf3/
+        ls
         python3 -m pip install --upgrade pip
         python3 -m pip install django
         pip install -r requirements.txt
