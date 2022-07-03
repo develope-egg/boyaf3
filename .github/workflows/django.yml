@@ -31,4 +31,4 @@ jobs:
     - name: Run Tests
       run: |
         cd boyaf3
-        python manage.py runserver
+        python manage.py test
