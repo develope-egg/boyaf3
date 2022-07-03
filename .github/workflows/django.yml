@@ -30,5 +30,5 @@ jobs:
         pip install -r requirements.txt
     - name: Run Tests
       run: |
-     
-        python /home/runner/work/boyaf3/boyaf3/boyaf3/manage.py runserver
+        cd boyaf3
+        python manage.py test
