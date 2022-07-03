@@ -4,7 +4,6 @@ from django import http
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from win32com import client as wc
 from reportlab.lib.utils import ImageReader
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
