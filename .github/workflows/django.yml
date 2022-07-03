@@ -31,4 +31,4 @@ jobs:
     - name: Run Tests
       run: |
      
-        python3 /home/runner/work/boyaf3/boyaf3/boyaf3/manage.py runserver
+        python /home/runner/work/boyaf3/boyaf3/boyaf3/manage.py runserver
